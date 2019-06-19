@@ -1,5 +1,4 @@
-FROM isaackuang/alpine-base:3.8.0
-
+FROM isaackuang/swoole
 
 RUN apk add --update curl ca-certificates && \
     curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub && \
@@ -11,7 +10,5 @@ RUN apk add --update curl ca-certificates && \
     rm /var/cache/apk/*
 
 WORKDIR /var/www/html
-
-ENTRYPOINT ["/init"]
 
 COPY config /
